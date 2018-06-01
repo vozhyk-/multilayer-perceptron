@@ -11,6 +11,12 @@ def parse_fields(row: List[str]):
     for i in it.chain(range(1, 17), range(18, 28)):
         row[i] = int(row[i])
 
+    for i in [17, 28, 29]:
+        row[i] = color_to_number(row[i])
+
+    return row
+
+def color_to_number(color: str):
     colors = [
         "black",
         "blue",
@@ -21,7 +27,4 @@ def parse_fields(row: List[str]):
         "red",
         "white",
     ]
-    for i in [17, 28, 29]:
-        row[i] = colors.index(row[i])
-
-    return row
+    return colors.index(color)
