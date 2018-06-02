@@ -4,7 +4,9 @@ import csv
 
 
 def parse(input: str):
-    reader = csv.reader(input.split("\n"))
+    lines = input.split("\n")
+    nonempty_lines = filter(lambda line: line != "", lines)
+    reader = csv.reader(nonempty_lines)
     return list(map(parse_fields, reader))
 
 def parse_fields(row: List[str]):

@@ -23,6 +23,14 @@ Algeria,4,1,2388,20,8,2,2,0,3,1,1,0,0,1,0,0,green,0,0,0,0,1,1,0,0,0,0,green,whit
             ["Algeria", 4, 1, 2388, 20, 8, 2, 2, 0, 3, 1, 1, 0, 0, 1, 0, 0, green, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, green, white],
         ])
 
+    def test_parse_flags_file(self):
+        with open("data/flags/flag.data") as file:
+            input = file.read()
+        parsed = flag_parsing.parse(input)
+
+        self.assertEqual(parsed[0][0], "Afghanistan")
+        self.assertEqual(parsed[193][0], "Zimbabwe")
+
     def test_color_to_number(self):
         self.assertEqual(flag_parsing.color_to_number("black"), 0)
         self.assertEqual(flag_parsing.color_to_number("green"), 4)
