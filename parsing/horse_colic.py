@@ -11,7 +11,8 @@ def parse(input: str):
 def parse_fields(row: List[str]):
     # Remove the always-empty field at the end
     row = row[:28]
-    return list(map(lambda i: convert_field(*i), enumerate(row)))
+    parsed = list(map(lambda i: convert_field(*i), enumerate(row)))
+    return convert_lesion_types(parsed)
 
 def convert_field(index, field):
     if field == "?":
@@ -23,6 +24,14 @@ def convert_field(index, field):
     # 24, 25, 26: keep it a string;
     # but it should really be parsed and expanded into a few fields.
     return field
+
+def convert_lesion_types(row: list):
+    return \
+        row[:24] + \
+        convert_lesion_type(row[24]) + \
+        convert_lesion_type(row[25]) + \
+        convert_lesion_type(row[26]) + \
+        row[27:]
 
 def convert_lesion_type(input: str):
     if input.startswith("0") or input.startswith("11"):
