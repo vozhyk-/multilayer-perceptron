@@ -23,3 +23,16 @@ def convert_field(index, field):
     # 24, 25, 26: keep it a string;
     # but it should really be parsed and expanded into a few fields.
     return field
+
+def convert_lesion_type(input: str):
+    if input.startswith("0") or input.startswith("11"):
+        subfield_digits = [2, 1, 1, 1]
+    else:
+        subfield_digits = [1, 1, 1, 2]
+
+    result = []
+    i = 0
+    for digits in subfield_digits:
+        result.append(int(input[i:i+digits]))
+        i += digits
+    return result

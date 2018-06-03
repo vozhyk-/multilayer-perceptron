@@ -41,3 +41,45 @@ class HorseColicParsingTestCase(unittest.TestCase):
             [2, 1, 527950, 37.60, 48, 36, None, None, 1, 1, None, 3, None, None, None, None, None, None, 44.00, 6.30, 1, 5.00, 1, 2, "03111", "00000", "00000", 1],
             [1, 1, 535263, 37.7, 44, 28, None, 4, 3, 2, 5, 4, 4, 1, 1, None, 3, 5, 45, 70, 3, 2, 1, 1, "03205", "00000", "00000", 2]
         ])
+
+
+class HorseColicConvertLesionTypeTestCase(unittest.TestCase):
+    def test_convert_none(self):
+        self.assertEqual(
+            parsing.horse_colic.convert_lesion_type("00000"),
+            [0, 0, 0, 0])
+
+    def test_convert_long_none(self):
+        self.assertEqual(
+            parsing.horse_colic.convert_lesion_type("000000"),
+            [0, 0, 0, 0])
+
+    def test_convert_obturation(self):
+        self.assertEqual(
+            parsing.horse_colic.convert_lesion_type("07111"),
+            [7, 1, 1, 1])
+
+    def test_convert_displacement(self):
+        self.assertEqual(
+            parsing.horse_colic.convert_lesion_type("31110"),
+            [3, 1, 1, 10])
+
+    def test_convert_no_specific_code(self):
+        self.assertEqual(
+            parsing.horse_colic.convert_lesion_type("05110"),
+            [5, 1, 1, 0])
+
+    def test_convert_all_sites(self):
+        self.assertEqual(
+            parsing.horse_colic.convert_lesion_type("11124"),
+            [11, 1, 2, 4])
+
+    def test_gastric_hernia(self):
+        self.assertEqual(
+            parsing.horse_colic.convert_lesion_type("12208"),
+            [1, 2, 2, 8])
+
+    def test_sm_intestine_hernia(self):
+        self.assertEqual(
+            parsing.horse_colic.convert_lesion_type("02208"),
+            [2, 2, 0, 8])
