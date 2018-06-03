@@ -1,67 +1,9 @@
 #!/usr/bin/env python
-"""Neural Network Simulator
-
-@author: Bill Tubbs
-Revision date: 2018-04-25
-
-This Python module provides classes to simulate Multi-Layer
-Perceptron (MLP) neural networks for machine learning applications.
-It is an efficient vectorized implementation using numpy arrays and
-scipy optimization algorithms.
-
-Based on theory taught by Andrew Ng on coursera.org and adapted
-from the Octave code examples from this course as well as updates
-from the 2017 deeplearning.ai Neural Networks and Deep Learning
-specialization course.
-
-Python modules required to run this module:
-
-numpy for:
- - multi-dimensional array manipulation
- - tanh and other useful functions
-scipy for:
- - expit - a fast vectorized version of the Sigmoid function
- - minimize - optimization algorithm used for learning
-matplotlib.pyplot
- - only needed for the demo in main()
-future
- - needed if running Python 2 for builtins such as input()
-
-TODO list:
-- Implement a save method for MLPNetwork
-- Find out how many times get_theta is running and consider doing
-  once only at network initialization
-- Check array caching is working in train()
-- Find a way to connect the inputs of one network to the
-  outputs of another (ideally using a name-object reference
-  so no copying is required).
-- Develop the Trainer class to manage all training
-- Consider adding 1.0s to training data inputs to speed up
-  training
-- Consider whether need to move to separate weights + biases
-- Consider making activation and gradient functions into named
-  tuples instead of regular tuples - or not.
-- Allow for mini-batch updates in Trainer class training
-- Change training data subsets into a dictionary for easier
-  retrieval
-- Remove MLP from class names (module name is sufficient)
-- Create a classifier class that inherits from MLPNetwork
-- Check lambda parameter is correct - /m /2m etc.
-- Add Softmax function, maybe add ELU (exponential linear unit)
-- Improve __repr__ function to show act func names only.
-"""
-
 from functools import partial
 import numpy as np
 from scipy.special import expit
 from scipy.optimize import minimize
 from builtins import input
-
-
-# ------------------------ EXCEPTION CLASS -----------------------------
-
-# See here for more information on user-defined exceptions:
-# https://docs.python.org/2/tutorial/errors.html
 
 
 class MLPError(Exception):
