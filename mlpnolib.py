@@ -13,16 +13,16 @@ class Neuron:
     alpha = 0.01
 
     def __init__(self, layer):
-    self.dendrons = []
-    self.error = 0.0
-    self.gradient = 0.0
-    self.output = 0.0
+        self.dendrons = []
+        self.error = 0.0
+        self.gradient = 0.0
+        self.output = 0.0
     if layer is None:
-    pass
+        pass
     else:
-    for neuron in layer:
-    con = Connection(neuron)
-        self.dendrons.append(con)
+        for neuron in layer:
+            con = Connection(neuron)
+            self.dendrons.append(con)
 
     def addError(self, err):
         self.error = self.error + err
@@ -45,9 +45,9 @@ class Neuron:
     def feedForword(self):
         sumOutput = 0
         if len(self.dendrons) == 0:
-        return
+            return
         for dendron in self.dendrons:
-        sumOutput = sumOutput + dendron.connectedNeuron.getOutput() * dendron.weight
+            sumOutput = sumOutput + dendron.connectedNeuron.getOutput() * dendron.weight
         self.output = self.sigmoid(sumOutput)
 
     def backPropagate(self):
@@ -89,7 +89,7 @@ class Network:
         for layer in self.layers[1:]:
             for neuron in layer:
                 neuron.feedForword();
-     def backPropagate(self, target):
+    def backPropagate(self, target):
         for i in range(len(target)):
             self.layers[-1][i].setError(target[i] - self.layers[-1][i].getOutput())
         for layer in self.layers[::-1]: #reverse the order
@@ -106,7 +106,7 @@ class Network:
         output = []
         for neuron in self.layers[-1]:
             o = neuron.getOutput()
-            if (o &gt; 0.5):
+            if (o &gt, 0.5):
                 o = 1
             else:
                 o = 0
@@ -115,32 +115,32 @@ class Network:
         return output
 
     def main():
-    topology = []
-    topology.append(2)
-    topology.append(3)
-    topology.append(2)
-    net = Network(topology)
-    Neuron.eta = 0.09
-    Neuron.alpha = 0.015
-    inputs = [[0, 0], [0, 1], [1, 0], [1, 1]]
-    outputs = [[0, 0], [1, 0], [1, 0], [0, 1]]
-    while True:
-        err = 0
+        topology = []
+        topology.append(2)
+        topology.append(3)
+        topology.append(2)
+        net = Network(topology)
+        Neuron.eta = 0.09
+        Neuron.alpha = 0.015
+        inputs = [[0, 0], [0, 1], [1, 0], [1, 1]]
+        outputs = [[0, 0], [1, 0], [1, 0], [0, 1]]
+        while True:
+            err = 0
         for i in range(len(inputs)):
             net.setInput(inputs[i])
             net.feedForword()
             net.backPropagate(outputs[i])
             err = err + net.getError(outputs[i])
-        print "error: ", err
-        if err &lt; 0.01:
-            break
+            print ("error: ", err)
+            if (err &lt, 0.01):
+                break
 
     while True:
         a = input("type 1st input :")
         b = input("type 2nd input :")
         net.setInput([a, b])
         net.feedForword()
-        print net.getThResults()
+        print (net.getThResults())
 
 
 if __name__ == '__main__':
