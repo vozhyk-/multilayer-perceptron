@@ -143,7 +143,3 @@ def main():
         net.setInput([a, b])
         net.feedForword()
         print (net.getThResults())
-
-
-if __name__ == '__main__':
-    main()
