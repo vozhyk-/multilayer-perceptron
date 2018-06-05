@@ -106,7 +106,7 @@ class Network:
         output = []
         for neuron in self.layers[-1]:
             o = neuron.getOutput()
-            if (o &gt, 0.5):
+            if (o > 0.5):
                 o = 1
             else:
                 o = 0
