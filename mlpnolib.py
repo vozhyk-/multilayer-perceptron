@@ -10,8 +10,8 @@ class Connection:
         self.dWeight = 0.0
 
 class Neuron:
-    eta = 0.001
-    alpha = 0.01
+    eta = 0.09
+    alpha = 0.015
 
     def __init__(self, layer):
         self.dendrons = []
