@@ -124,6 +124,7 @@ def main():
     Neuron.alpha = 0.015
     inputs = [[0, 0], [0, 1], [1, 0], [1, 1]]
     outputs = [[0, 0], [1, 0], [1, 0], [0, 1]]
+    generation = 1
     while True:
         err = 0
         for i in range(len(inputs)):
@@ -131,9 +132,10 @@ def main():
             net.feedForword()
             net.backPropagate(outputs[i])
             err = err + net.getError(outputs[i])
-        print ("error: ", err)
+        print ("generation:", generation, "error: ", err)
         if (err < 0.01):
             break
+        generation += 1
 
     while True:
         a = input("type 1st input :")
