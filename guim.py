@@ -127,6 +127,7 @@ class New_Toplevel:
         self.Radiobutton1.configure(highlightbackground="#d9d9d9")
         self.Radiobutton1.configure(highlightcolor="black")
         self.Radiobutton1.configure(justify=LEFT)
+        self.Radiobutton1.configure(takefocus="0")
         self.Radiobutton1.configure(text='''Flags''')
 
         self.Radiobutton2 = Radiobutton(top)
@@ -140,6 +141,7 @@ class New_Toplevel:
         self.Radiobutton2.configure(highlightbackground="#d9d9d9")
         self.Radiobutton2.configure(highlightcolor="black")
         self.Radiobutton2.configure(justify=LEFT)
+        self.Radiobutton2.configure(takefocus="0")
         self.Radiobutton2.configure(text='''Horse-colic''')
 
         self.Radiobutton3 = Radiobutton(top)
@@ -153,6 +155,7 @@ class New_Toplevel:
         self.Radiobutton3.configure(highlightbackground="#d9d9d9")
         self.Radiobutton3.configure(highlightcolor="black")
         self.Radiobutton3.configure(justify=LEFT)
+        self.Radiobutton3.configure(takefocus="0")
         self.Radiobutton3.configure(text='''Ionosphere''')
 
         self.lab46 = Label(top)
