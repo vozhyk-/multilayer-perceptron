@@ -48,7 +48,7 @@ class New_Toplevel:
         _ana2color = '#d9d9d9' # X11 color: 'gray85'
 
         top.geometry("600x450+462+89")
-        top.title("New Toplevel")
+        top.title("MLP Project")
         top.configure(background="#d9d9d9")
 
 
