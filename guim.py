@@ -84,7 +84,7 @@ class New_Toplevel:
         self.Button3.configure(takefocus="0")
         self.Button3.configure(text='''Load''')
 
-        self.Button4 = Button(top, command=window)
+        self.Button4 = Button(top)
         self.Button4.place(relx=0.6, rely=0.27, height=24, width=32)
         self.Button4.configure(activebackground="#d9d9d9")
         self.Button4.configure(activeforeground="#000000")
