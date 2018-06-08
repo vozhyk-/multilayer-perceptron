@@ -179,15 +179,7 @@ class New_Toplevel:
         self.Labelframe1.configure(background="#d9d9d9")
         self.Labelframe1.configure(width=500)
 
-        self.Canvas1 = Canvas(top)
-        self.Canvas1.place(relx=0.08, rely=0.44, relheight=0.52, relwidth=0.81)
-        self.Canvas1.configure(background="#d9d9d9")
-        self.Canvas1.configure(borderwidth="2")
-        self.Canvas1.configure(insertbackground="black")
-        self.Canvas1.configure(relief=RIDGE)
-        self.Canvas1.configure(selectbackground="#c4c4c4")
-        self.Canvas1.configure(selectforeground="black")
-        self.Canvas1.configure(width=483)
+        
 
 class mclass:
     def __init__(self,  window):
