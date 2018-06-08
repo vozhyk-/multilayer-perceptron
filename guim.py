@@ -84,6 +84,19 @@ class New_Toplevel:
         self.Button3.configure(takefocus="0")
         self.Button3.configure(text='''Load''')
 
+        self.Button4 = Button(top)
+        self.Button4.place(relx=0.6, rely=0.27, height=24, width=32)
+        self.Button4.configure(activebackground="#d9d9d9")
+        self.Button4.configure(activeforeground="#000000")
+        self.Button4.configure(background="#d9d9d9")
+        self.Button4.configure(disabledforeground="#a3a3a3")
+        self.Button4.configure(foreground="#000000")
+        self.Button4.configure(highlightbackground="#d9d9d9")
+        self.Button4.configure(highlightcolor="black")
+        self.Button4.configure(pady="0")
+        self.Button4.configure(takefocus="0")
+        self.Button4.configure(text='''Plot''')
+
         self.Entry1 = Entry(top)
         self.Entry1.place(relx=0.58, rely=0.11,height=20, relwidth=0.21)
         self.Entry1.configure(background="white")
@@ -179,7 +192,7 @@ class New_Toplevel:
         self.Labelframe1.configure(background="#d9d9d9")
         self.Labelframe1.configure(width=500)
 
-        
+
 
 class mclass:
     def __init__(self,  window):
