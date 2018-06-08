@@ -12,14 +12,13 @@ except ImportError:
     import tkinter.ttk as ttk
     py3 = True
 
-import _support
+
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
     root = Tk()
     top = New_Toplevel (root)
-    _support.init(root, top)
     root.mainloop()
 
 w = None
@@ -158,15 +157,6 @@ class New_Toplevel:
         self.Labelframe1.configure(text='''Output:''')
         self.Labelframe1.configure(background="#d9d9d9")
         self.Labelframe1.configure(width=500)
-
-        self.Message1 = Message(top)
-        self.Message1.place(relx=0.5, rely=0.27, relheight=0.05, relwidth=0.1)
-        self.Message1.configure(background="#d9d9d9")
-        self.Message1.configure(foreground="#000000")
-        self.Message1.configure(highlightbackground="#d9d9d9")
-        self.Message1.configure(highlightcolor="black")
-        self.Message1.configure(text='''Message''')
-        self.Message1.configure(width=60)
 
         self.Canvas1 = Canvas(top)
         self.Canvas1.place(relx=0.08, rely=0.44, relheight=0.52, relwidth=0.81)
