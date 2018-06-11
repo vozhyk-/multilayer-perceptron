@@ -61,8 +61,9 @@ class Neuron:
             self.error = 0;
 
 class Network:
-    def __init__(self, topology):
+    def __init__(self, topology, num_output_categories):
         self.layers = []
+        self.num_categories = num_output_categories
         for numNeuron in topology:
             layer = []
             for i in range(numNeuron):
@@ -77,62 +78,65 @@ class Network:
         for i in range(len(inputs)):
             self.layers[0][i].setOutput(inputs[i])
 
-    def getError(self, target):
-        err = 0
-        for i in range(len(target)):
-            e = (target[i] - self.layers[-1][i].getOutput())
-            err = err + e ** 2
-        err = err / len(target)
-        err = math.sqrt(err)
-        return err
-
     def feedForword(self):
         for layer in self.layers[1:]:
             for neuron in layer:
                 neuron.feedForword();
     def backPropagate(self, target):
+        target = self.unthreshold(target)
         for i in range(len(target)):
             self.layers[-1][i].setError(target[i] - self.layers[-1][i].getOutput())
         for layer in self.layers[::-1]: #reverse the order
             for neuron in layer:
                 neuron.backPropagate()
-    def getResults(self):
-        output = []
-        for neuron in self.layers[-1]:
-            output.append(neuron.getOutput())
-        output.pop() # removing the bias neuron
-        return output
 
     def getThResults(self):
         output = []
         for neuron in self.layers[-1]:
-            o = neuron.getOutput()
-            if (o > 0.5):
-                o = 1
-            else:
-                o = 0
+            o = self.threshold(neuron.getOutput())
             output.append(o)
         output.pop()# removing the bias neuron
         return output
 
+    def threshold(self, output: float) -> int:
+        max_output = 1.0
+        step = max_output / self.num_categories
+        steps = math.ceil(output / step)
+        return steps - 1 # start from 0
 
-def train(net: Network, inputs: List[list], outputs: List[list], max_error : float = 0.01):
-    assert len(inputs) == len(outputs)
+    def unthreshold(self, categorical_output: List[int]) -> float:
+        max_output = 1.0
+        step = max_output / self.num_categories
+        return [step * o + step / 2 for o in categorical_output]
+
+
+def train(net: Network,
+          inputs: List[list], expected_outputs: List[list],
+          max_error : float = 0.01):
+    assert len(inputs) == len(expected_outputs)
 
     generation = 1
     while True:
+        outputs = []
+        for i in range(len(inputs)):
+            outputs.append(apply(net, inputs[i]))
+            net.backPropagate(expected_outputs[i])
+
         err = 0
         for i in range(len(inputs)):
-            net.setInput(inputs[i])
-            net.feedForword()
-            net.backPropagate(outputs[i])
-            err = err + net.getError(outputs[i])
+            err += error(outputs[i], expected_outputs[i])
+        err /= len(inputs)
         print ("generation:", generation, "error: ", err)
         if (err < max_error):
             break
         generation += 1
 
-def apply(net: Network, input: list):
+def apply(net: Network, input: list) -> List[int]:
     net.setInput(input)
     net.feedForword()
     return net.getThResults()
+
+def error(actual: List[int], expected: List[int]):
+    assert len(actual) == len(expected)
+
+    return int(actual != expected)

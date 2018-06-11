@@ -4,8 +4,6 @@
 ** ionosphere:
 *** parse
 *** divide into input / expected output
-* make neural network outputs categorical (round to integers)
-* use a different error metric (count(correct outputs) / number of outputs)
 * make a function to calculate the error on the test set
 * make a GUI with:
 ** a graph of x=generation, y=error on the training set
