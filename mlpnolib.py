@@ -118,9 +118,9 @@ def train(net: Network,
     generation = 1
     while True:
         outputs = []
-        for i in range(len(inputs)):
-            outputs.append(apply(net, inputs[i]))
-            net.backPropagate(expected_outputs[i])
+        for input, expected_output in zip(inputs, expected_outputs):
+            outputs.append(apply(net, input))
+            net.backPropagate(expected_output)
 
         err = error_on_dataset(outputs, expected_outputs)
         print ("generation:", generation, "error: ", err)
