@@ -108,10 +108,6 @@ class New_Toplevel:
         self.lab46.place(relx=0.1, rely=0.07, height=21, width=101)
         self.lab46.configure(text='''Select the dataset:''')
 
-        self.menubar = Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
-        top.configure(menu = self.menubar)
-
-
 
         self.Labelframe1 = LabelFrame(top)
         self.Labelframe1.place(relx=0.07, rely=0.4, relheight=0.57
