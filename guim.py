@@ -46,99 +46,48 @@ class New_Toplevel:
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
-        _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
-        _fgcolor = '#000000'  # X11 color: 'black'
-        _compcolor = '#d9d9d9' # X11 color: 'gray85'
-        _ana1color = '#d9d9d9' # X11 color: 'gray85'
-        _ana2color = '#d9d9d9' # X11 color: 'gray85'
-
         top.geometry("600x450+462+89")
         top.title("MLP Project")
-        top.configure(background="#d9d9d9")
 
 
 
         self.Button1 = Button(top)
         self.Button1.place(relx=0.68, rely=0.27, height=24, width=67)
-        self.Button1.configure(activebackground="#d9d9d9")
-        self.Button1.configure(activeforeground="#000000")
-        self.Button1.configure(background="#d9d9d9")
-        self.Button1.configure(disabledforeground="#a3a3a3")
-        self.Button1.configure(foreground="#000000")
-        self.Button1.configure(highlightbackground="#d9d9d9")
-        self.Button1.configure(highlightcolor="black")
         self.Button1.configure(pady="0")
         self.Button1.configure(text='''Train''')
         self.Button1.configure(width=67)
 
         self.Button3 = Button(top)
         self.Button3.place(relx=0.32, rely=0.27, height=24, width=37)
-        self.Button3.configure(activebackground="#d9d9d9")
-        self.Button3.configure(activeforeground="#000000")
-        self.Button3.configure(background="#d9d9d9")
-        self.Button3.configure(disabledforeground="#a3a3a3")
-        self.Button3.configure(foreground="#000000")
-        self.Button3.configure(highlightbackground="#d9d9d9")
-        self.Button3.configure(highlightcolor="black")
         self.Button3.configure(pady="0")
         self.Button3.configure(takefocus="0")
         self.Button3.configure(text='''Load''')
 
         self.Button4 = Button(top)
         self.Button4.place(relx=0.6, rely=0.27, height=24, width=32)
-        self.Button4.configure(activebackground="#d9d9d9")
-        self.Button4.configure(activeforeground="#000000")
-        self.Button4.configure(background="#d9d9d9")
-        self.Button4.configure(disabledforeground="#a3a3a3")
-        self.Button4.configure(foreground="#000000")
-        self.Button4.configure(highlightbackground="#d9d9d9")
-        self.Button4.configure(highlightcolor="black")
         self.Button4.configure(pady="0")
         self.Button4.configure(takefocus="0")
         self.Button4.configure(text='''Plot''')
 
         self.Entry1 = Entry(top)
         self.Entry1.place(relx=0.58, rely=0.11,height=20, relwidth=0.21)
-        self.Entry1.configure(background="white")
-        self.Entry1.configure(disabledforeground="#a3a3a3")
-        self.Entry1.configure(font="TkFixedFont")
-        self.Entry1.configure(foreground="#000000")
-        self.Entry1.configure(insertbackground="black")
         self.Entry1.configure(width=124)
 
         self.Entry2 = Entry(top)
         self.Entry2.place(relx=0.58, rely=0.18,height=20, relwidth=0.21)
-        self.Entry2.configure(background="white")
-        self.Entry2.configure(disabledforeground="#a3a3a3")
-        self.Entry2.configure(font="TkFixedFont")
-        self.Entry2.configure(foreground="#000000")
-        self.Entry2.configure(insertbackground="black")
         self.Entry2.configure(width=124)
 
         self.Label1 = Label(top)
         self.Label1.place(relx=0.42, rely=0.11, height=21, width=72)
-        self.Label1.configure(background="#d9d9d9")
-        self.Label1.configure(disabledforeground="#a3a3a3")
-        self.Label1.configure(foreground="#000000")
         self.Label1.configure(text='''No of layers:''')
 
         self.Label2 = Label(top)
         self.Label2.place(relx=0.42, rely=0.18, height=21, width=91)
-        self.Label2.configure(background="#d9d9d9")
-        self.Label2.configure(disabledforeground="#a3a3a3")
-        self.Label2.configure(foreground="#000000")
         self.Label2.configure(text='''No of iterations:''')
 
         self.Radiobutton1 = Radiobutton(top)
         self.Radiobutton1.place(relx=0.13, rely=0.11, relheight=0.06
                 , relwidth=0.09)
-        self.Radiobutton1.configure(activebackground="#d9d9d9")
-        self.Radiobutton1.configure(activeforeground="#000000")
-        self.Radiobutton1.configure(background="#d9d9d9")
-        self.Radiobutton1.configure(disabledforeground="#a3a3a3")
-        self.Radiobutton1.configure(foreground="#000000")
-        self.Radiobutton1.configure(highlightbackground="#d9d9d9")
-        self.Radiobutton1.configure(highlightcolor="black")
         self.Radiobutton1.configure(justify=LEFT)
         self.Radiobutton1.configure(takefocus="0")
         self.Radiobutton1.configure(text='''Flags''')
@@ -146,13 +95,6 @@ class New_Toplevel:
         self.Radiobutton2 = Radiobutton(top)
         self.Radiobutton2.place(relx=0.13, rely=0.18, relheight=0.06
                 , relwidth=0.15)
-        self.Radiobutton2.configure(activebackground="#d9d9d9")
-        self.Radiobutton2.configure(activeforeground="#000000")
-        self.Radiobutton2.configure(background="#d9d9d9")
-        self.Radiobutton2.configure(disabledforeground="#a3a3a3")
-        self.Radiobutton2.configure(foreground="#000000")
-        self.Radiobutton2.configure(highlightbackground="#d9d9d9")
-        self.Radiobutton2.configure(highlightcolor="black")
         self.Radiobutton2.configure(justify=LEFT)
         self.Radiobutton2.configure(takefocus="0")
         self.Radiobutton2.configure(text='''Horse-colic''')
@@ -160,22 +102,12 @@ class New_Toplevel:
         self.Radiobutton3 = Radiobutton(top)
         self.Radiobutton3.place(relx=0.13, rely=0.24, relheight=0.06
                 , relwidth=0.14)
-        self.Radiobutton3.configure(activebackground="#d9d9d9")
-        self.Radiobutton3.configure(activeforeground="#000000")
-        self.Radiobutton3.configure(background="#d9d9d9")
-        self.Radiobutton3.configure(disabledforeground="#a3a3a3")
-        self.Radiobutton3.configure(foreground="#000000")
-        self.Radiobutton3.configure(highlightbackground="#d9d9d9")
-        self.Radiobutton3.configure(highlightcolor="black")
         self.Radiobutton3.configure(justify=LEFT)
         self.Radiobutton3.configure(takefocus="0")
         self.Radiobutton3.configure(text='''Ionosphere''')
 
         self.lab46 = Label(top)
         self.lab46.place(relx=0.1, rely=0.07, height=21, width=101)
-        self.lab46.configure(background="#d9d9d9")
-        self.lab46.configure(disabledforeground="#a3a3a3")
-        self.lab46.configure(foreground="#000000")
         self.lab46.configure(text='''Select the dataset:''')
 
         self.menubar = Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
@@ -187,9 +119,7 @@ class New_Toplevel:
         self.Labelframe1.place(relx=0.07, rely=0.4, relheight=0.57
                 , relwidth=0.83)
         self.Labelframe1.configure(relief=GROOVE)
-        self.Labelframe1.configure(foreground="black")
         self.Labelframe1.configure(text='''Output:''')
-        self.Labelframe1.configure(background="#d9d9d9")
         self.Labelframe1.configure(width=500)
 
 
