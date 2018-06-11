@@ -67,21 +67,25 @@ class New_Toplevel:
         self.Button4.configure(takefocus="0")
         self.Button4.configure(text='''Plot''')
 
-        self.Entry1 = Entry(top)
-        self.Entry1.place(relx=0.58, rely=0.11,height=20, relwidth=0.21)
-        self.Entry1.configure(width=124)
+        self.num_l1_neurons = Entry(top)
+        self.num_l1_neurons.place(relx=0.58, rely=0.11,height=20, relwidth=0.10)
+        self.num_l1_neurons.configure(width=124)
 
-        self.Entry2 = Entry(top)
-        self.Entry2.place(relx=0.58, rely=0.18,height=20, relwidth=0.21)
-        self.Entry2.configure(width=124)
+        self.num_l2_neurons = Entry(top)
+        self.num_l2_neurons.place(relx=0.68, rely=0.11,height=20, relwidth=0.10)
+        self.num_l2_neurons.configure(width=124)
+
+        self.max_training_error = Entry(top)
+        self.max_training_error.place(relx=0.58, rely=0.18,height=20, relwidth=0.21)
+        self.max_training_error.configure(width=124)
 
         self.Label1 = Label(top)
-        self.Label1.place(relx=0.42, rely=0.11, height=21, width=72)
-        self.Label1.configure(text='''No of layers:''')
+        self.Label1.place(relx=0.42, rely=0.11, height=21)
+        self.Label1.configure(text='''Number of neurons:''')
 
         self.Label2 = Label(top)
-        self.Label2.place(relx=0.42, rely=0.18, height=21, width=91)
-        self.Label2.configure(text='''No of iterations:''')
+        self.Label2.place(relx=0.42, rely=0.18, height=21)
+        self.Label2.configure(text='''Maximum training error:''')
 
         self.Radiobutton1 = Radiobutton(top)
         self.Radiobutton1.place(relx=0.13, rely=0.11, relheight=0.06
@@ -105,7 +109,7 @@ class New_Toplevel:
         self.Radiobutton3.configure(text='''Ionosphere''')
 
         self.lab46 = Label(top)
-        self.lab46.place(relx=0.1, rely=0.07, height=21, width=101)
+        self.lab46.place(relx=0.1, rely=0.07, height=21)
         self.lab46.configure(text='''Select the dataset:''')
 
 
