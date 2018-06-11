@@ -4,7 +4,6 @@
 ** ionosphere:
 *** parse
 *** divide into input / expected output
-* make a function to calculate the error on the test set
 * make a GUI with:
 ** a graph of x=generation, y=error on the training set
 ** a display of the error on the test set
