@@ -67,17 +67,28 @@ class New_Toplevel:
         self.Button4.configure(takefocus="0")
         self.Button4.configure(text='''Plot''')
 
-        self.num_l1_neurons = Entry(top)
-        self.num_l1_neurons.place(relx=0.58, rely=0.11,height=20, relwidth=0.10)
-        self.num_l1_neurons.configure(width=124)
+        num_l1_neurons_entry = Entry(top)
+        num_l1_neurons_entry.place(relx=0.58, rely=0.11,height=20, relwidth=0.10)
+        num_l1_neurons_entry.configure(width=124)
 
-        self.num_l2_neurons = Entry(top)
-        self.num_l2_neurons.place(relx=0.68, rely=0.11,height=20, relwidth=0.10)
-        self.num_l2_neurons.configure(width=124)
+        num_l2_neurons_entry = Entry(top)
+        num_l2_neurons_entry.place(relx=0.68, rely=0.11,height=20, relwidth=0.10)
+        num_l2_neurons_entry.configure(width=124)
 
-        self.max_training_error = Entry(top)
-        self.max_training_error.place(relx=0.58, rely=0.18,height=20, relwidth=0.21)
-        self.max_training_error.configure(width=124)
+        self.num_neurons = [StringVar(), StringVar()]
+        self.num_neurons[0].set("16")
+        self.num_neurons[1].set("16")
+
+        num_l1_neurons_entry.configure(textvariable=self.num_neurons[0])
+        num_l2_neurons_entry.configure(textvariable=self.num_neurons[1])
+
+        max_training_error_entry = Entry(top)
+        max_training_error_entry.place(relx=0.58, rely=0.18,height=20, relwidth=0.21)
+        max_training_error_entry.configure(width=124)
+
+        self.max_training_error = StringVar()
+        self.max_training_error.set("0.8")
+        max_training_error_entry.configure(textvariable=self.max_training_error)
 
         self.Label1 = Label(top)
         self.Label1.place(relx=0.42, rely=0.11, height=21)
