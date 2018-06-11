@@ -51,11 +51,12 @@ class New_Toplevel:
 
 
 
-        self.Button1 = Button(top)
-        self.Button1.place(relx=0.68, rely=0.27, height=24, width=67)
-        self.Button1.configure(pady="0")
-        self.Button1.configure(text='''Start''')
-        self.Button1.configure(width=67)
+        start_button = Button(top)
+        start_button.place(relx=0.68, rely=0.27, height=24, width=67)
+        start_button.configure(pady="0")
+        start_button.configure(text='''Start''')
+        start_button.configure(width=67)
+        start_button.configure(command=self.train_and_evaluate)
 
         num_l1_neurons_entry = Entry(top)
         num_l1_neurons_entry.place(relx=0.58, rely=0.11,height=20, relwidth=0.10)
@@ -127,6 +128,8 @@ class New_Toplevel:
         self.output_frame.configure(text='''Output:''')
         self.output_frame.configure(width=500)
 
+    def train_and_evaluate(self):
+        pass
 
     def plot (self):
         x=np.array ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
