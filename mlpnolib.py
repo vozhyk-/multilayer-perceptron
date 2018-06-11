@@ -122,10 +122,7 @@ def train(net: Network,
             outputs.append(apply(net, inputs[i]))
             net.backPropagate(expected_outputs[i])
 
-        err = 0
-        for i in range(len(inputs)):
-            err += error(outputs[i], expected_outputs[i])
-        err /= len(inputs)
+        err = error_on_dataset(outputs, expected_outputs)
         print ("generation:", generation, "error: ", err)
         if (err < max_error):
             break
@@ -140,3 +137,9 @@ def error(actual: List[int], expected: List[int]):
     assert len(actual) == len(expected)
 
     return int(actual != expected)
+
+def error_on_dataset(actual: List[List[int]], expected: List[List[int]]):
+    assert len(actual) == len(expected)
+
+    err_sum = sum(map(lambda t: error(t[0], t[1]), zip(actual, expected)))
+    return err_sum / len(actual)
