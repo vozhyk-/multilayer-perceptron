@@ -112,10 +112,11 @@ class Network:
 
 def train(net: Network,
           inputs: List[list], expected_outputs: List[list],
-          max_error : float = 0.01):
+          max_error: float = 0.01) -> List[float]:
     assert len(inputs) == len(expected_outputs)
 
-    generation = 1
+    generation = 0
+    training_errors = []
     while True:
         outputs = []
         for input, expected_output in zip(inputs, expected_outputs):
@@ -124,9 +125,12 @@ def train(net: Network,
 
         err = error_on_dataset(outputs, expected_outputs)
         print ("generation:", generation, "error: ", err)
+        training_errors.append(err)
         if (err < max_error):
             break
         generation += 1
+
+    return training_errors
 
 def apply(net: Network, input: list) -> List[int]:
     net.setInput(input)

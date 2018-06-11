@@ -6,7 +6,7 @@ import mlpnolib
 def trained_network(
         dataset,
         inner_layer_sizes: List[int],
-        max_error: float = 0.1) -> mlpnolib.Network:
+        max_error: float = 0.1) -> (mlpnolib.Network, List[float]):
     inputs, expected_outputs = separate_inputs_and_outputs(dataset)
 
     input_layer_size = len(inputs[0])
@@ -15,8 +15,9 @@ def trained_network(
     num_output_categories = dataset[0].num_output_categories()
 
     network = mlpnolib.Network(layer_sizes, num_output_categories)
-    mlpnolib.train(network, inputs, expected_outputs, max_error=max_error)
-    return network
+    errors = mlpnolib.train(
+        network, inputs, expected_outputs, max_error=max_error)
+    return (network, errors)
 
 def evaluate_network(network: mlpnolib.Network, dataset) -> float:
     inputs, expected_outputs = separate_inputs_and_outputs(dataset)
