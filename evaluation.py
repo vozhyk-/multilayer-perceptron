@@ -3,6 +3,12 @@ from typing import List
 import mlpnolib
 
 
+def split_dataset(dataset: list, training_set_fraction: float = 0.75) -> (list, list):
+    training_set_size = int(training_set_fraction * len(dataset))
+    training_set = dataset[:training_set_size]
+    test_set = dataset[training_set_size:]
+    return (training_set, test_set)
+
 def trained_network(
         dataset,
         inner_layer_sizes: List[int],

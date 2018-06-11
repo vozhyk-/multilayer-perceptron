@@ -8,11 +8,9 @@ import evaluation
 class MLPNetworkAcceptingDatasetsTestCase(unittest.TestCase):
     def test_flags(self):
         rows = reading.read_flag_dataset()
-        random.shuffle(rows)
 
-        training_set_size = int(0.75 * len(rows))
-        training_set = rows[:training_set_size]
-        test_set = rows[training_set_size:]
+        random.shuffle(rows)
+        training_set, test_set = evaluation.split_dataset(rows)
 
         max_error = 0.76
         network, training_errors = evaluation.trained_network(
