@@ -148,6 +148,3 @@ class mclass:
 
 if __name__ == '__main__':
     vp_start_gui()
-    window= Tk()
-    start= mclass (window)
-    window.mainloop()
