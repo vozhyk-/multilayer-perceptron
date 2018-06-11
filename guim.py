@@ -88,26 +88,32 @@ class New_Toplevel:
         self.Label2.place(relx=0.42, rely=0.18, height=21)
         self.Label2.configure(text='''Maximum training error:''')
 
-        self.Radiobutton1 = Radiobutton(top)
-        self.Radiobutton1.place(relx=0.13, rely=0.11, relheight=0.06
+        flags_radiobutton = Radiobutton(top)
+        flags_radiobutton.place(relx=0.13, rely=0.11, relheight=0.06
                 , relwidth=0.09)
-        self.Radiobutton1.configure(justify=LEFT)
-        self.Radiobutton1.configure(takefocus="0")
-        self.Radiobutton1.configure(text='''Flags''')
+        flags_radiobutton.configure(justify=LEFT)
+        flags_radiobutton.configure(takefocus="0")
+        flags_radiobutton.configure(text='''Flags''')
 
-        self.Radiobutton2 = Radiobutton(top)
-        self.Radiobutton2.place(relx=0.13, rely=0.18, relheight=0.06
+        horse_colic_radiobutton = Radiobutton(top)
+        horse_colic_radiobutton.place(relx=0.13, rely=0.18, relheight=0.06
                 , relwidth=0.15)
-        self.Radiobutton2.configure(justify=LEFT)
-        self.Radiobutton2.configure(takefocus="0")
-        self.Radiobutton2.configure(text='''Horse-colic''')
+        horse_colic_radiobutton.configure(justify=LEFT)
+        horse_colic_radiobutton.configure(takefocus="0")
+        horse_colic_radiobutton.configure(text='''Horsecolic''')
 
-        self.Radiobutton3 = Radiobutton(top)
-        self.Radiobutton3.place(relx=0.13, rely=0.24, relheight=0.06
+        ionosphere_radiobutton = Radiobutton(top)
+        ionosphere_radiobutton.place(relx=0.13, rely=0.24, relheight=0.06
                 , relwidth=0.14)
-        self.Radiobutton3.configure(justify=LEFT)
-        self.Radiobutton3.configure(takefocus="0")
-        self.Radiobutton3.configure(text='''Ionosphere''')
+        ionosphere_radiobutton.configure(justify=LEFT)
+        ionosphere_radiobutton.configure(takefocus="0")
+        ionosphere_radiobutton.configure(text='''Ionosphere''')
+
+        self.dataset_choice = IntVar()
+        self.dataset_choice.set(0)
+        flags_radiobutton.configure(variable=self.dataset_choice, value=0)
+        horse_colic_radiobutton.configure(variable=self.dataset_choice, value=1)
+        ionosphere_radiobutton.configure(variable=self.dataset_choice, value=2)
 
         self.lab46 = Label(top)
         self.lab46.place(relx=0.1, rely=0.07, height=21)
