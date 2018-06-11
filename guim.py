@@ -120,22 +120,13 @@ class New_Toplevel:
         self.lab46.configure(text='''Select the dataset:''')
 
 
-        self.Labelframe1 = LabelFrame(top)
-        self.Labelframe1.place(relx=0.07, rely=0.4, relheight=0.57
+        self.output_frame = LabelFrame(top)
+        self.output_frame.place(relx=0.07, rely=0.4, relheight=0.57
                 , relwidth=0.83)
-        self.Labelframe1.configure(relief=GROOVE)
-        self.Labelframe1.configure(text='''Output:''')
-        self.Labelframe1.configure(width=500)
+        self.output_frame.configure(relief=GROOVE)
+        self.output_frame.configure(text='''Output:''')
+        self.output_frame.configure(width=500)
 
-
-
-class mclass:
-    def __init__(self,  window):
-        self.window = window
-        self.box = Entry(window)
-        self.button = Button (window, text="check", command=self.plot)
-        self.box.pack ()
-        self.button.pack()
 
     def plot (self):
         x=np.array ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
@@ -153,7 +144,7 @@ class mclass:
         a.set_ylabel("Y", fontsize=14)
         a.set_xlabel("X", fontsize=14)
 
-        canvas = FigureCanvasTkAgg(fig, master=self.window)
+        canvas = FigureCanvasTkAgg(fig, master=self.output_frame)
         canvas.get_tk_widget().pack()
         canvas.draw()
 
