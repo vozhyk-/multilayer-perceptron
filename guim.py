@@ -54,18 +54,8 @@ class New_Toplevel:
         self.Button1 = Button(top)
         self.Button1.place(relx=0.68, rely=0.27, height=24, width=67)
         self.Button1.configure(pady="0")
-        self.Button1.configure(text='''Train''')
+        self.Button1.configure(text='''Start''')
         self.Button1.configure(width=67)
-
-        self.Button3 = Button(top)
-        self.Button3.place(relx=0.32, rely=0.27, height=24, width=37)
-        self.Button3.configure(takefocus="0")
-        self.Button3.configure(text='''Load''')
-
-        self.Button4 = Button(top)
-        self.Button4.place(relx=0.6, rely=0.27, height=24, width=32)
-        self.Button4.configure(takefocus="0")
-        self.Button4.configure(text='''Plot''')
 
         num_l1_neurons_entry = Entry(top)
         num_l1_neurons_entry.place(relx=0.58, rely=0.11,height=20, relwidth=0.10)
