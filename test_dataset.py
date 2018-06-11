@@ -14,3 +14,6 @@ class RowTestCase(unittest.TestCase):
 
         self.assertEqual(ds.expected_result(), 2)
         self.assertEqual(ds.input(), [0, 3, 5, 1, 1, 0, 1, 1, 1, 0, green, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, black, green])
+
+    def test_num_output_categories(self):
+        self.assertEqual(flag_dataset.FlagsRow.num_output_categories(), 8)
