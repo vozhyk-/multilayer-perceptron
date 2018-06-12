@@ -160,10 +160,18 @@ class New_Toplevel:
         self.error.set(str(error))
 
     def read_chosen_dataset(self):
-        rows = reading.read_flag_dataset()
-
-        random.shuffle(rows)
-        return evaluation.split_dataset(rows)
+        if self.dataset_choice.get() == 0:
+            rows = reading.read_flag_dataset()
+            random.shuffle(rows)
+            return evaluation.split_dataset(rows)
+        elif self.dataset_choice.get() == 1:
+            training_set = reading.read_horse_colic_training_dataset()
+            test_set = reading.read_horse_colic_test_dataset()
+            return training_set, test_set
+        else:
+            rows = reading.read_ionosphere_dataset()
+            random.shuffle(rows)
+            return evaluation.split_dataset(rows, training_set_fraction=2/3)
 
     def plot(self, training_errors: List[float]):
         try:
