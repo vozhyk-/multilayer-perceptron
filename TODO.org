@@ -4,11 +4,7 @@
 ** ionosphere:
 *** parse
 *** divide into input / expected output
-* make a GUI with:
-** a graph of x=generation, y=error on the training set
-** a display of the error on the test set
-** a choice of 1 or 2 hidden layers
-** a way to enter each hidden layer's number of neurons
+* Make choosing the dataset in the GUI possible
 
 * parts
 ** NN (W)
