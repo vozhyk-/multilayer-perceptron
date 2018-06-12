@@ -150,10 +150,7 @@ class New_Toplevel:
                 map(lambda var: var.get(),
                     self.num_neurons)))
 
-        rows = reading.read_flag_dataset()
-
-        random.shuffle(rows)
-        training_set, test_set = evaluation.split_dataset(rows)
+        training_set, test_set = self.read_chosen_dataset()
 
         network, training_errors = evaluation.trained_network(
             training_set, inner_layer_sizes, max_error=max_error)
@@ -161,6 +158,12 @@ class New_Toplevel:
 
         error = evaluation.evaluate_network(network, test_set)
         self.error.set(str(error))
+
+    def read_chosen_dataset(self):
+        rows = reading.read_flag_dataset()
+
+        random.shuffle(rows)
+        return evaluation.split_dataset(rows)
 
     def plot(self, training_errors: List[float]):
         try:
