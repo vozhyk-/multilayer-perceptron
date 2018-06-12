@@ -21,3 +21,9 @@ class ReadingTestCase(unittest.TestCase):
 
         self.assertEqual(ds[0].expected_result(), 0)
         self.assertEqual(ds[67].expected_result(), 1)
+
+    def test_ionosphere(self):
+        ds = reading.read_ionosphere_dataset()
+
+        self.assertEqual(ds[0].expected_result(), 1)
+        self.assertEqual(ds[350].expected_result(), 1)
