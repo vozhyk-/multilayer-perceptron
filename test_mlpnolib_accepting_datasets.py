@@ -17,3 +17,13 @@ class MLPNetworkAcceptingDatasetsTestCase(unittest.TestCase):
             training_set, [16, 16], max_error=max_error)
         error = evaluation.evaluate_network(network, test_set)
         self.assertLess(error, max_error)
+
+    def test_horse_colic(self):
+        training_set = reading.read_horse_colic_training_dataset()
+        test_set = reading.read_horse_colic_test_dataset()
+
+        max_error = 0.76
+        network, training_errors = evaluation.trained_network(
+            training_set, [16, 16], max_error=max_error)
+        error = evaluation.evaluate_network(network, test_set)
+        self.assertLess(error, max_error)
