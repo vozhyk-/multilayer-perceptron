@@ -1,6 +1,6 @@
 * parse the rest of the datasets
 ** horse colic:
-*** divide into input / expected output
+*** make enums start from 0
 ** ionosphere:
 *** parse
 *** divide into input / expected output
