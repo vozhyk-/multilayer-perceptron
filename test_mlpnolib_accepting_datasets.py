@@ -27,3 +27,16 @@ class MLPNetworkAcceptingDatasetsTestCase(unittest.TestCase):
             training_set, [16, 16], max_error=max_error)
         error = evaluation.evaluate_network(network, test_set)
         self.assertLess(error, max_error)
+
+    def test_ionosphere(self):
+        rows = reading.read_ionosphere_dataset()
+
+        random.shuffle(rows)
+        training_set, test_set = evaluation.split_dataset(
+            rows, training_set_fraction=2/3)
+
+        max_error = 0.25
+        network, training_errors = evaluation.trained_network(
+            training_set, [16, 16], max_error=max_error)
+        error = evaluation.evaluate_network(network, test_set)
+        self.assertLess(error, max_error)
