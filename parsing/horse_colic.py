@@ -16,7 +16,7 @@ def parse_fields(row: List[str]):
 
 def convert_field(index, field):
     if field == "?":
-        return None
+        return -1
     if index in list(range(3)) + list(range(4, 15)) + [16, 17, 20, 22, 23, 27]:
         return int(field)
     if index in [3, 15, 18, 19, 21]:
