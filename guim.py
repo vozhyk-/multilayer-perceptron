@@ -18,6 +18,12 @@ except ImportError:
     py3 = True
 
 
+import random
+
+import reading
+import evaluation
+
+
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -129,7 +135,22 @@ class New_Toplevel:
         self.output_frame.configure(width=500)
 
     def train_and_evaluate(self):
-        pass
+        max_error = float(self.max_training_error.get())
+        inner_layer_sizes = map(int,
+            filter(lambda x: x != "",
+                map(lambda var: var.get(),
+                    self.num_neurons)))
+
+        rows = reading.read_flag_dataset()
+
+        random.shuffle(rows)
+        training_set, test_set = evaluation.split_dataset(rows)
+
+        network, training_errors = evaluation.trained_network(
+            training_set, inner_layer_sizes, max_error=max_error)
+        # TODO Show training_errors
+        error = evaluation.evaluate_network(network, test_set)
+        # TODO Show error
 
     def plot (self):
         x=np.array ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
